@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
     <nav>
       <a routerLink="/dashboard">Dashboard</a>
       <a routerLink="/heroes">Heroes</a>
+      <a routerLink="/search">Search</a>
     </nav>
     <router-outlet></router-outlet>
   `
 })
 export class AppComponent {
-  title = '我是个壳';
+  title = 'my is div';
 }

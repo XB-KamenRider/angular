@@ -23,7 +23,10 @@ export class HeroesComponent implements OnInit {
     private heroService: HeroService) { }
 
   getHeroes(): void {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this.heroService.getHeroes().then((heroes) => {
+      this.heroes = heroes;
+      console.log(heroes);
+    });
   }
 
   ngOnInit(): void {
@@ -33,6 +36,25 @@ export class HeroesComponent implements OnInit {
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
     // this.gotoDetail();
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    console.log(name);
+    if (!name) { return console.log('请输入名字'); }
+    this.heroService.create(name)
+      .then(hero => {
+        this.heroes.push(hero);
+        this.selectedHero = null;
+      });
+  }
+
+  delete(hero: Hero): void {
+    this.heroService.delete(hero.id)
+        .then(() => {
+          this.heroes = this.heroes.filter(h => h !== hero);
+          if (this.selectedHero === hero) { this.selectedHero = null; }
+        });
   }
 
   gotoDetail(): void {
