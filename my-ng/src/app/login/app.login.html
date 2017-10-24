@@ -1,0 +1,32 @@
+<div class="login">
+    <div class="login-box">
+        <div class="login-title">
+            登陆
+        </div>
+        <div class="error msg">
+            {{msg}}
+        </div>
+        <form action="">
+            <div class="form-item">
+                <el-input placeholder="请输入内容" [(model)]="loginData.phone">
+                    <ng-template #prepend>
+                        <i class="el-icon-date"></i>
+                    </ng-template>
+                </el-input>
+            </div>
+            <div class="form-item">
+                <el-input placeholder="请输入内容" [(model)]="loginData.pwd">
+                    <ng-template #prepend>
+                        <i class="el-icon-share"></i>
+                    </ng-template>
+                </el-input>
+            </div>
+            <div class="form-item" *ngIf="loginstate">
+                <el-button style="width:100%" (click)="subLoginAction(loginData)">登陆</el-button>
+            </div>
+            <div class="form-item" *ngIf="!loginstate">
+                <el-button style="width:100%" [loading]="true">登陆中</el-button>
+            </div>
+        </form>
+    </div>
+</div>

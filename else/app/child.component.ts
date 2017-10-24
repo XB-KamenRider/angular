@@ -1,3 +1,4 @@
+
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -7,8 +8,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     <input #inp [(ngModel)]="spa" (input)="vote(inp.value)">
     <div [style.color] = "'red'">{{dv}}</div>
     <button (click)="setIndex(fil)">点击</button>
-  `,
-  styleUrls: ['./app.component.css']
+  `
 })
 
 export class ChildComponent {

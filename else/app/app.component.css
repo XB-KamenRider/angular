@@ -1,0 +1,7 @@
+.cssClass {
+  color: red;
+}
+
+.alert-danger .sr-only {
+  font-size: 18px;
+}
